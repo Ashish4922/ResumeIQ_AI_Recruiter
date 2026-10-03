@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ResumeIQ - Recruiter Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="recruiter.css"
+    >
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Resume<span>IQ</span>
+    </div>
+
+    <div class="nav-right">
+
+        <span id="userName">
+            Recruiter
+        </span>
+
+        <button
+            id="logoutBtn"
+            class="logout-button">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="welcome-section">
+
+        <div>
+
+            <p class="eyebrow">
+                RECRUITER DASHBOARD
+            </p>
+
+            <h1>
+                Find the right candidates faster.
+            </h1>
+
+            <p class="subtitle">
+                Create jobs, screen multiple resumes,
+                compare candidates and manage your
+                recruitment pipeline with AI assistance.
+            </p>
+
+        </div>
+
+        <button
+            id="createJobBtn"
+            class="primary-button">
+            + Create New Job
+        </button>
+
+    </section>
+
+
+<section class="stats-grid">
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Active Jobs
+        </span>
+
+        <strong id="activeJobsCount">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Total Candidates
+        </span>
+
+        <strong id="totalCandidates">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Shortlisted
+        </span>
+
+        <strong id="shortlistedCandidates">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Interviews
+        </span>
+
+        <strong id="interviews">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Rejected
+        </span>
+
+        <strong id="rejectedCandidates">
+            0
+        </strong>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-label">
+            Average Match Score
+        </span>
+
+        <strong id="averageMatchScore">
+            -
+        </strong>
+
+    </div>
+
+</section>
+
+<section class="interviews-section">
+
+    <div class="section-header">
+        <p class="eyebrow">
+            INTERVIEW MANAGEMENT
+        </p>
+
+        <h2>
+            Upcoming Interviews
+        </h2>
+
+        <p class="section-subtitle">
+            Review and manage scheduled candidate interviews.
+        </p>
+    </div>
+
+    <div
+        id="upcomingInterviewsContainer"
+        class="upcoming-interviews-container"
+    >
+        <div class="empty-state">
+            <div class="empty-icon">
+                📅
+            </div>
+
+            <h3>
+                No Upcoming Interviews
+            </h3>
+
+            <p>
+                Scheduled interviews will appear here.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+    <section
+        id="createJobSection"
+        class="panel hidden">
+
+        <div class="panel-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    NEW JOB
+                </p>
+
+                <h2>
+                    Create a Job
+                </h2>
+
+            </div>
+
+            <button
+                id="closeJobBtn"
+                class="close-button">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="jobForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="jobTitle">
+                        Job Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobTitle"
+                        placeholder="e.g. Python Backend Developer"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobCompany">
+                        Company
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobCompany"
+                        placeholder="Company name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobLocation">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobLocation"
+                        placeholder="e.g. Noida / Remote"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="jobExperience">
+                        Experience
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobExperience"
+                        placeholder="e.g. 0-2 years"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="jobDescription">
+                    Job Description
+                </label>
+
+                <textarea
+                    id="jobDescription"
+                    rows="8"
+                    placeholder="Enter the complete job description..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    id="cancelJobBtn"
+                    class="secondary-button">
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button">
+                    Create Job
+                </button>
+
+            </div>
+
+        </form>
+
+        <div id="jobMessage"></div>
+
+    </section>
+
+
+    <section class="jobs-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    YOUR JOBS
+                </p>
+
+                <h2>
+                    Job Openings
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="jobsContainer"
+            class="jobs-container">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    💼
+                </div>
+
+                <h3>
+                    No jobs created yet
+                </h3>
+
+                <p>
+                    Create your first job to start
+                    screening candidates.
+                </p>
+
+                <button
+                    id="emptyCreateJobBtn"
+                    class="primary-button">
+                    Create Your First Job
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="recruiter.js?v=4"></script>
+
+</body>
+
+</html>

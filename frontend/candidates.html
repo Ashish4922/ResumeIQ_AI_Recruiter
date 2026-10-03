@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ResumeIQ - Candidates</title>
+
+    <link
+        rel="stylesheet"
+        href="candidates.css"
+    >
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        Resume<span>IQ</span>
+    </div>
+
+    <div class="nav-right">
+
+        <span id="userName">
+            Recruiter
+        </span>
+
+        <button
+            id="logoutBtn"
+            class="logout-button">
+            Logout
+        </button>
+
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+    <section class="page-header">
+
+        <div>
+
+            <button
+                id="backBtn"
+                class="back-button">
+                ← Back to Jobs
+            </button>
+
+            <p class="eyebrow">
+                CANDIDATE SCREENING
+            </p>
+
+            <h1 id="jobTitle">
+                Loading Job...
+            </h1>
+
+            <p
+                id="jobMeta"
+                class="subtitle">
+                Loading job details...
+            </p>
+
+        </div>
+
+        <button
+            id="uploadBtn"
+            class="primary-button">
+            + Upload Resumes
+        </button>
+
+    </section>
+
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Candidates
+            </span>
+
+            <strong id="candidateCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Shortlisted
+            </span>
+
+            <strong id="shortlistedCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Interviews
+            </span>
+
+            <strong id="interviewCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Average Match
+            </span>
+
+            <strong id="averageScore">
+                -
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="uploadSection"
+        class="panel hidden">
+
+        <div class="panel-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    RESUME UPLOAD
+                </p>
+
+                <h2>
+                    Upload Candidate Resumes
+                </h2>
+
+            </div>
+
+            <button
+                id="closeUploadBtn"
+                class="close-button">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="upload-box">
+
+            <div class="upload-icon">
+                📄
+            </div>
+
+            <h3>
+                Select multiple resumes
+            </h3>
+
+            <p>
+                Upload PDF, DOCX, TXT, PNG or JPG
+                resumes for screening.
+            </p>
+
+            <input
+                type="file"
+                id="resumeFiles"
+                multiple
+                accept=".pdf,.docx,.txt,.png,.jpg,.jpeg"
+            >
+
+            <label
+                for="resumeFiles"
+                class="secondary-button upload-label">
+                Choose Resumes
+            </label>
+
+            <div id="selectedFiles"></div>
+
+            <button
+                id="screenBtn"
+                class="primary-button hidden">
+                Start AI Screening
+            </button>
+
+            <div id="uploadMessage"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="candidates-section">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    CANDIDATES
+                </p>
+
+                <h2>
+                    Candidate List
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="candidatesContainer"
+            class="candidates-container">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    👥
+                </div>
+
+                <h3>
+                    No candidates yet
+                </h3>
+
+                <p>
+                    Upload resumes to start
+                    screening candidates.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="candidates.js"></script>
+
+</body>
+
+</html>

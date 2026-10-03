@@ -1,0 +1,9 @@
+.env
+resumeiq.db
+uploads/
+.vscode/
+__pycache__/
+*.py[cod]
+*.pyo
+.DS_Store
+Thumbs.db.vscode
