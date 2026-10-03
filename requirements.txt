@@ -11,3 +11,4 @@ email-validator
 passlib
 PyJWT
 python-jose
+bcrypt
