@@ -1135,7 +1135,7 @@ async def upload_resumes(
 
 
     with ThreadPoolExecutor(
-        max_workers=2
+        max_workers=3
     ) as executor:
 
         futures = [
